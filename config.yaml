@@ -1,0 +1,18 @@
+description: |
+  Pewty (pronounced "pew-tea") is a french company doing IT consulting for Cloud technologies. Its founder (Tanguy Falconnet) is a technical guy always enthusiastic to follow you in your projects.
+members:
+  - name: Tanguy Falconnet
+    role: Founder
+    description: |
+      Cloud DevOps Expert
+      Main technologies:
+      - AWS: Certified Solutions Architect
+      - Kubernetes: EKS, Kops, k3s, Helm, FluxCD, Docker, containerd
+      - Pipelines: GHA, Jenkins, Gitlab CI
+      - Monitoring: Grafana, Loki, Prometheus, Victoria Metrics, Alertmanager
+      - IaC: Terraform, Ansible, Cloudformation
+      - System: Linux, MacOS, Windows
+    social:
+      linkedin: https://www.linkedin.com/in/tanguyfalconnet/
+      github: https://github.com/tanguyfalconnet
+    
