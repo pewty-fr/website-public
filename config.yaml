@@ -1,13 +1,19 @@
 description: |
   Pewty (pronounced "pew-tea") is a french company doing IT consulting for Cloud technologies.
   Its founder (Tanguy Falconnet) is a technical guy always enthusiastic to follow you in your projects.
+legalNotice: |
+  Legal name: Pewty SAS
+  Registered capital: 1000€
+  Registered office address: 630 chemin de Graboz 01140 Saint Etienne sur Chalaronne
+  SIRET: 92243135800014 
+  RCS: 922 431 358 R.C.S. Bourg-en-Bresse
 members:
   - name: Tanguy Falconnet
     role: Founder
     image: images/tanguyfalconnet.jpeg
     description: |
       Cloud DevOps Expert
-      
+
       Main technologies:
       - AWS: Certified Solutions Architect
       - Kubernetes: EKS, Kops, k3s, Helm, FluxCD, Docker, containerd
