@@ -7,6 +7,7 @@ members:
     image: images/tanguyfalconnet.jpeg
     description: |
       Cloud DevOps Expert
+      
       Main technologies:
       - AWS: Certified Solutions Architect
       - Kubernetes: EKS, Kops, k3s, Helm, FluxCD, Docker, containerd
