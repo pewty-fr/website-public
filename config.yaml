@@ -4,6 +4,7 @@ description: |
 members:
   - name: Tanguy Falconnet
     role: Founder
+    image: images/tanguyfalconnet.jpeg
     description: |
       Cloud DevOps Expert
       Main technologies:
