@@ -13,7 +13,7 @@ members:
       - Monitoring: Grafana, Loki, Prometheus, Victoria Metrics, Alertmanager
       - IaC: Terraform, Ansible, Cloudformation
       - System: Linux, MacOS, Windows
-    social:
+    socials:
       linkedin: https://www.linkedin.com/in/tanguyfalconnet/
       github: https://github.com/tanguyfalconnet
     
