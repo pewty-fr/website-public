@@ -32,13 +32,13 @@ const RESOURCES = {"canvaskit/chromium/canvaskit.wasm": "fc18c3010856029414b70ca
 "assets/AssetManifest.bin": "5911520a96595ca2d3424ff193c4e9c4",
 "assets/FontManifest.json": "376976cbe428733e902daf5d210814cc",
 "assets/NOTICES": "e607103df73027fcc6cb36a8ed034622",
-"index.html": "cd19077815aa9ffb2c32fe4dc25cb93c",
-"/": "cd19077815aa9ffb2c32fe4dc25cb93c",
+"index.html": "2008a5caf50b5d436a56dac2760cc2ad",
+"/": "2008a5caf50b5d436a56dac2760cc2ad",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"favicon.png": "7202f60d3f11d4e500ce340118494d27",
 "manifest.json": "90c454c29b48f08bc06627d125f70466"};
 // The application shell files that are downloaded before a service worker can
 // start.
