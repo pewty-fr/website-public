@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pewty.fr/sitemap.xml
+Sitemap: https://www.pewty.fr/sitemap.xml
