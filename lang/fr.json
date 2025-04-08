@@ -1,0 +1,9 @@
+{
+    "welcome": "Accueil",
+    "expert": "Expertise",
+    "approach": "Approche",
+    "founder": "Fondateur",
+    "contact": "Contact",
+    "partner": "Votre partenaire en <span class=\"text-indigo-600\">technologies Cloud",
+    "description": "Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et migration cloud."
+}

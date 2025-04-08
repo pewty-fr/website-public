@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schwifty - Kubernetes Dashboard for Everyone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6b46c1 0%, #4299e1 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .pricing-card:hover {
+            transform: scale(1.03);
+        }
+        .kube-icon {
+            background: linear-gradient(135deg, #4299e1 0%, #6b46c1 100%);
+        }
+        .glow {
+            box-shadow: 0 0 15px rgba(66, 153, 225, 0.6);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="kube-icon w-10 h-10 rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-cubes text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-xl font-bold text-gray-900">Schwifty</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#features" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">How It Works</a>
+                    <a href="#pricing" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Pricing</a>
+                    <a href="#testimonials" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Testimonials</a>
+                    <a href="#contact" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#pricing" class="ml-8 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white gradient-bg hover:opacity-90">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">
+                Kubernetes Made <span class="underline decoration-yellow-300">Simple</span>
+            </h1>
+            <p class="mt-6 text-xl text-indigo-100 max-w-3xl mx-auto">
+                Schwifty is the intuitive Kubernetes dashboard that empowers everyone to harness the power of containers - securely and efficiently.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4">
+                <a href="#pricing" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50">
+                    Get Started
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#features" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 bg-opacity-60 hover:bg-opacity-70">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Cloud -->
+    <div class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
+                Trusted by teams at
+            </p>
+            <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+                <div class="col-span-1 flex justify-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                </div>
+                <div class="col-span-1 flex justify-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png" alt="Meta">
+                </div>
+                <div class="col-span-1 flex justify-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
+                </div>
+                <div class="col-span-1 flex justify-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+                </div>
+                <div class="col-span-1 flex justify-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    A better way to manage Kubernetes
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Schwifty combines powerful features with an intuitive interface to make Kubernetes accessible to everyone.
+                </p>
+            </div>
+
+            <div class="mt-20">
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Feature 1 -->
+                    <div class="feature-card transition-all duration-300 ease-in-out rounded-lg bg-white p-8 shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Secure by Design</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Built with security first. Role-based access control, audit logging, and encryption ensure your clusters stay protected.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card transition-all duration-300 ease-in-out rounded-lg bg-white p-8 shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <i class="fas fa-sliders-h text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Highly Customizable</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Tailor the dashboard to your needs with customizable views, widgets, and workflows that match your team's processes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card transition-all duration-300 ease-in-out rounded-lg bg-white p-8 shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Beginner Friendly</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Guided workflows, contextual help, and simplified terminology make Kubernetes approachable for newcomers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card transition-all duration-300 ease-in-out rounded-lg bg-white p-8 shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <i class="fas fa-tachometer-alt text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Real-time Monitoring</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Comprehensive dashboards provide real-time visibility into cluster health, performance, and resource utilization.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="feature-card transition-all duration-300 ease-in-out rounded-lg bg-white p-8 shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <i class="fas fa-code-branch text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">GitOps Ready</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Native integration with Git repositories for declarative configuration and version-controlled deployments.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="feature-card transition-all duration-300 ease-in-out rounded-lg bg-white p-8 shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <i class="fas fa-plug text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Extensible Platform</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Plugin architecture allows you to extend functionality with custom integrations and tools specific to your stack.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div id="how-it-works" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">How It Works</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Get started in minutes
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Schwifty connects to your existing Kubernetes clusters with minimal setup required.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                            <span class="text-xl font-bold">1</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Connect Your Cluster</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Simply provide your cluster credentials or use our secure in-cluster deployment option.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                            <span class="text-xl font-bold">2</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Configure Access</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Set up roles and permissions to control what each team member can see and do.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                            <span class="text-xl font-bold">3</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Start Managing</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Use the intuitive interface to deploy, monitor, and troubleshoot your applications.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900">Live Demo</h3>
+                            <p class="mt-4 text-gray-600">
+                                Try Schwifty right in your browser with our interactive demo cluster. No installation required.
+                            </p>
+                            <div class="mt-6">
+                                <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white gradient-bg hover:opacity-90">
+                                    Launch Demo
+                                    <i class="fas fa-external-link-alt ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 p-8 flex items-center justify-center">
+                            <div class="relative w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-play-circle text-4xl text-indigo-600"></i>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-white bg-opacity-50 animate-ping"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Pricing</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Simple, transparent pricing
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Choose the plan that fits your needs. No hidden fees, cancel anytime.
+                </p>
+            </div>
+
+            <div class="mt-16 space-y-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+                <!-- Free Tier -->
+                <div class="pricing-card transition-all duration-300 ease-in-out flex flex-col rounded-lg shadow-lg overflow-hidden">
+                    <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                        <div>
+                            <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600" id="tier-standard">
+                                Free
+                            </h3>
+                        </div>
+                        <div class="mt-4 flex items-baseline text-5xl font-extrabold">
+                            $0
+                            <span class="ml-1 text-2xl font-medium text-gray-500">
+                                /month
+                            </span>
+                        </div>
+                        <p class="mt-5 text-lg text-gray-500">
+                            Perfect for individuals and small teams getting started with Kubernetes.
+                        </p>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Single cluster support
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Basic monitoring
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Community support
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Up to 3 users
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="rounded-md shadow">
+                            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                                Get started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Tier -->
+                <div class="pricing-card transition-all duration-300 ease-in-out flex flex-col rounded-lg shadow-lg overflow-hidden">
+                    <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                        <div>
+                            <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600" id="tier-standard">
+                                Pro
+                            </h3>
+                        </div>
+                        <div class="mt-4 flex items-baseline text-5xl font-extrabold">
+                            $49
+                            <span class="ml-1 text-2xl font-medium text-gray-500">
+                                /month
+                            </span>
+                        </div>
+                        <p class="mt-5 text-lg text-gray-500">
+                            For growing teams that need more power and flexibility.
+                        </p>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Up to 5 clusters
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Advanced monitoring
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Email support
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Up to 15 users
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Custom dashboards
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="rounded-md shadow">
+                            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white gradient-bg hover:opacity-90">
+                                Get started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Tier -->
+                <div class="pricing-card transition-all duration-300 ease-in-out flex flex-col rounded-lg shadow-lg overflow-hidden">
+                    <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                        <div>
+                            <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600" id="tier-standard">
+                                Enterprise
+                            </h3>
+                        </div>
+                        <div class="mt-4 flex items-baseline text-5xl font-extrabold">
+                            $199
+                            <span class="ml-1 text-2xl font-medium text-gray-500">
+                                /month
+                            </span>
+                        </div>
+                        <p class="mt-5 text-lg text-gray-500">
+                            For organizations with complex Kubernetes environments.
+                        </p>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Unlimited clusters
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Premium monitoring
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    24/7 priority support
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Unlimited users
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    SSO integration
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    Audit logging
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="rounded-md shadow">
+                            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                                Contact sales
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Loved by developers worldwide
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K.">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Sarah K.</h3>
+                                <p class="text-gray-500">DevOps Engineer</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-gray-600">
+                                "Schwifty has transformed how our team interacts with Kubernetes. What used to require command-line expertise is now accessible to our entire engineering team."
+                            </p>
+                            <div class="mt-4 flex items-center">
+                                <div class="flex items-center text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-500">5.0 rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="James P.">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">James P.</h3>
+                                <p class="text-gray-500">CTO</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-gray-600">
+                                "The security features in Schwifty gave me confidence to open up Kubernetes access to more team members without worrying about accidental misconfigurations."
+                            </p>
+                            <div class="mt-4 flex items-center">
+                                <div class="flex items-center text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-500">4.5 rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Lisa M.</h3>
+                                <p class="text-gray-500">Frontend Developer</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-gray-600">
+                                "As someone new to Kubernetes, Schwifty's guided workflows helped me understand concepts I found intimidating before. Now I can deploy my own services confidently."
+                            </p>
+                            <div class="mt-4 flex items-center">
+                                <div class="flex items-center text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="ml-2 text-sm text-gray-500">5.0 rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-indigo-700">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <span class="block">Ready to simplify your Kubernetes?</span>
+                <span class="block">Get started with Schwifty today.</span>
+            </h2>
+            <div class="mt-8 flex justify-center">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#pricing" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                        Get started
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-200 bg-indigo-600 hover:bg-indigo-700">
+                        Live demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Contact Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Have questions? We're here to help
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow">
+                        <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+                        <form class="mt-6 space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                                <div class="mt-1">
+                                    <input type="text" name="name" id="name" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                <div class="mt-1">
+                                    <input type="email" name="email" id="email" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                <div class="mt-1">
+                                    <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"></textarea>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white gradient-bg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Send message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <div class="bg-gray-50 p-8 rounded-lg shadow">
+                            <h3 class="text-lg font-medium text-gray-900">Contact information</h3>
+                            <div class="mt-6">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-envelope text-indigo-600"></i>
+                                    </div>
+                                    <div class="ml-3 text-sm text-gray-500">
+                                        <p>hello@schwifty.dev</p>
+                                        <p class="mt-1">Email us anytime</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-headset text-indigo-600"></i>
+                                    </div>
+                                    <div class="ml-3 text-sm text-gray-500">
+                                        <p>+1 (555) 123-4567</p>
+                                        <p class="mt-1">Monday-Friday, 9am-5pm PST</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                                    </div>
+                                    <div class="ml-3 text-sm text-gray-500">
+                                        <p>123 Kubernetes Way</p>
+                                        <p>San Francisco, CA 94107</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 bg-gray-50 p-8 rounded-lg shadow">
+                            <h3 class="text-lg font-medium text-gray-900">Join our community</h3>
+                            <div class="mt-6 flex space-x-6">
+                                <a href="#" class="text-gray-400 hover:text-gray-500">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-500">
+                                    <i class="fab fa-twitter text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-500">
+                                    <i class="fab fa-slack text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-500">
+                                    <i class="fab fa-discord text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Product</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#features" class="text-base text-gray-300 hover:text-white">Features</a></li>
+                        <li><a href="#pricing" class="text-base text-gray-300 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Releases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Terms</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Subscribe</h3>
+                    <p class="mt-4 text-base text-gray-300">Get product updates and Kubernetes tips.</p>
+                    <form class="mt-4 sm:flex">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" required class="w-full px-5 py-3 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs border-gray-300 rounded-md" placeholder="Enter your email">
+                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                            <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white gradient-bg hover:opacity-90">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <div class="flex space-x-6 md:order-2">
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                    &copy; 2023 Schwifty. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-indigo-600 text-white rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling (example)
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
