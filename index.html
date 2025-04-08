@@ -47,7 +47,7 @@
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: #4f46e5;
+            background-color: #e5b846;
             transition: width 0.3s ease;
         }
         
@@ -60,15 +60,14 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            z-index: 0;
         }
         
         .cloud {
             position: absolute;
-            background: white;
-            border-radius: 50%;
+            background-image: url('/images/cloud.svg');
+            background-size: cover;
             opacity: 0.8;
-            animation: moveClouds 20s linear infinite;
+            filter: invert(100%);
         }
 
         @keyframes moveClouds {
@@ -87,25 +86,25 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="https://raw.githubusercontent.com/pewty-fr/website-public/refs/heads/github-pages/assets/assets/logo-50.png" alt="Pewty Logo" class="h-10">
+                    <img src="https://raw.githubusercontent.com/pewty-fr/website-public/refs/heads/github-pages/images/favicon.png" alt="Pewty Logo" class="h-10">
                     <span class="text-gray-700 px-3 font-bold text-2xl">PEWTY</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-welcome">Accueil</a>
-                        <a href="#services" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-expert">Expertise</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-approach">Approche</a>
-                        <a href="#founder" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-founder">Fondateur</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-contact">Contact</a>
+                        <a href="#home" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-welcome">Accueil</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-expert">Expertise</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-approach">Approche</a>
+                        <a href="#founder" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-founder">Fondateur</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-contact">Contact</a>
                         
-                        <select id="languageSelect" class="block px-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" onchange="i18n()">
+                        <select id="languageSelect" class="block px-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200 focus:ring-opacity-50" onchange="i18n()">
                             <option value="fr">Français</option>
                             <option value="en">English</option>
                         </select>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-indigo-600 focus:outline-none">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-400 focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -117,11 +116,11 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-welcome">Accueil</a>
-                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-expert">Expertise</a>
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-approach">Approche</a>
-                <a href="#founder" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-founder">Fondateur</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-contact">Contact</a>
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-welcome">Accueil</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-expert">Expertise</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-approach">Approche</a>
+                <a href="#founder" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-founder">Fondateur</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -129,19 +128,19 @@
     <!-- Hero Section -->
     <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 cloud-bg relative overflow-hidden">
         <div class="floating-clouds">
-            <div class="cloud" style="width: 100px; height: 60px; top: 20%; left: 10%;"></div>
+            <!-- <div class="cloud" style="width: 100px; height: 60px; top: 20%; left: 10%;"></div>
             <div class="cloud" style="width: 150px; height: 90px; top: 30%; right: 15%;"></div>
-            <div class="cloud" style="width: 80px; height: 50px; top: 60%; left: 20%;"></div>
+            <div class="cloud" style="width: 80px; height: 50px; top: 60%; left: 20%;"></div> -->
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="md:flex items-center justify-between">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-800 i18n-partner">Votre partenaire en <span class="text-indigo-600">technologies Cloud</span></h1>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-800 i18n-partner">Votre partenaire en <span class="text-orange-400">technologies Cloud</span></h1>
                     <p class="text-xl md:text-2xl mb-8 text-gray-600 i18n-description">Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et migration cloud.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="bg-indigo-600 text-white hover:bg-indigo-700 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300 i18n-discuss">Discutons de votre projet</a>
-                        <a href="#services" class="border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300 i18n-our-expert">Nos expertises</a>
+                        <a href="#contact" class="bg-orange-400 text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300 i18n-discuss">Discutons de votre projet</a>
+                        <a href="#services" class="border-2 border-orange-400 text-orange-400 hover:bg-orange-50 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300 i18n-our-expert">Nos expertises</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
@@ -155,12 +154,9 @@
     <section class="py-8 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="AWS" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" class="h-8 md:h-16 opacity-70 hover:opacity-100 transition duration-300">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg" alt="Prometheus" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg" alt="Grafana" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Flux_color_logo.png" alt="FluxCD" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
             </div>
         </div>
     </section>
@@ -176,42 +172,42 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-indigo-600 mb-6">
+                    <div class="text-orange-400 mb-6">
                         <i class="fas fa-shield-alt text-4xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-devops">DevOps & Sécurité</h3>
                     <p class="text-gray-600 mb-4 i18n-setup-cicd">Mise en place de pipelines CI/CD et renforcement de la sécurité de vos applications cloud.</p>
                     <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center i18n-automatisation"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Automatisation des déploiements</li>
-                        <li class="flex items-center i18n-data-security"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Sécurité des données</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Monitoring & Alerting</li>
+                        <li class="flex items-center i18n-automatisation"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Automatisation des déploiements</li>
+                        <li class="flex items-center i18n-data-security"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Sécurité des données</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Monitoring & Alerting</li>
                     </ul>
                 </div>
 
                 <!-- Service 2 -->
                 <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-indigo-600 mb-6">
+                    <div class="text-orange-400 mb-6">
                         <i class="fas fa-cloud-upload-alt text-4xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-cloud-migration">Migration Cloud</h3>
                     <p class="text-gray-600 mb-4 i18n-migrate">Accompagnement complet pour migrer vos applications et données vers les plateformes cloud (AWS, Scaleway).</p>
                     <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center i18n-audit"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Audit de votre infrastructure</li>
-                        <li class="flex items-center i18n-strategy"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Stratégie de migration</li>
-                        <li class="flex items-center i18n-optim"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Optimisation des coûts</li>
+                        <li class="flex items-center i18n-audit"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Audit de votre infrastructure</li>
+                        <li class="flex items-center i18n-strategy"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Stratégie de migration</li>
+                        <li class="flex items-center i18n-optim"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Optimisation des coûts</li>
                     </ul>
                 </div>
                 
                 <!-- Service 3 -->
                 <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-indigo-600 mb-6">
+                    <div class="text-orange-400 mb-6">
                         <i class="fas fa-server text-4xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-archi">Architecture Cloud</h3>
                     <p class="text-gray-600 mb-4 i18n-conception">Conception d'infrastructures cloud sécurisées, évolutives et haute disponibilité.</p>
                     <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Infrastructure as Code</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Containers & Microservices</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Infrastructure as Code</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Containers & Microservices</li>
                     </ul>
                 </div>
                 
@@ -230,8 +226,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Step 1 -->
                 <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-indigo-600 font-bold text-2xl">1</span>
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-orange-400 font-bold text-2xl">1</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-analyze">Audit & Analyse</h3>
                     <p class="text-gray-600 i18n-eval">Évaluation approfondie de votre infrastructure existante et identification des opportunités d'amélioration.</p>
@@ -239,8 +235,8 @@
                 
                 <!-- Step 2 -->
                 <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-indigo-600 font-bold text-2xl">2</span>
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-orange-400 font-bold text-2xl">2</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-conception-on-demand">Conception sur Mesure</h3>
                     <p class="text-gray-600 i18n-dev-cloud">Développement d'une architecture cloud adaptée à vos besoins spécifiques et à votre budget.</p>
@@ -248,8 +244,8 @@
                 
                 <!-- Step 3 -->
                 <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-indigo-600 font-bold text-2xl">3</span>
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-orange-400 font-bold text-2xl">3</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-implem">Implémentation & Suivi</h3>
                     <p class="text-gray-600 i18n-progressive-deployment">Déploiement progressif avec tests rigoureux et optimisation continue des performances.</p>
@@ -265,21 +261,21 @@
                 <div class="md:w-1/3 mb-12 md:mb-0 flex justify-center">
                     <div class="relative">
                         <img src="https://raw.githubusercontent.com/pewty-fr/website-public/refs/heads/main/images/tanguyfalconnet.jpeg" alt="Tanguy Falconnet" class="w-64 h-64 rounded-full object-cover shadow-xl border-4 border-white">
-                        <div class="absolute -bottom-2 -right-2 bg-indigo-600 text-white p-3 rounded-full">
+                        <div class="absolute -bottom-2 -right-2 bg-orange-400 text-white p-3 rounded-full">
                             <i class="fas fa-code text-xl"></i>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Tanguy Falconnet</h2>
-                    <p class="text-xl text-indigo-600 mb-6 i18n-founder-title">Fondateur & Consultant Technique</p>
+                    <p class="text-xl text-orange-400 mb-6 i18n-founder-title">Fondateur & Consultant Technique</p>
                     <p class="text-gray-600 mb-6 i18n-founder-passionate">Passionné par les technologies cloud depuis plus de 10 ans, j'accompagne les entreprises dans leur transformation numérique avec une approche pragmatique et orientée résultats.</p>
                     <p class="text-gray-600 mb-8 i18n-founder-desc">Mon expertise couvre la plateforme cloud AWS (Certified Solution Architect - Associate) avec une prédilection pour les solutions open-source.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/tanguy-falconnet" class="bg-indigo-600 text-white hover:bg-indigo-700 px-6 py-2 rounded-lg font-medium transition duration-300">
+                        <a href="https://www.linkedin.com/in/tanguy-falconnet" class="bg-orange-400 text-white hover:bg-orange-700 px-6 py-2 rounded-lg font-medium transition duration-300">
                             <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
                         </a>
-                        <a href="https://github.com/tanguyfalconnet" class="bg-gray-800 text-white hover:bg-gray-900 px-6 py-2 rounded-lg font-medium transition duration-300">
+                        <a href="https://github.com/tanguyfalconnet" class="bg-orange-400 text-white hover:bg-orange-700 px-6 py-2 rounded-lg font-medium transition duration-300">
                             <i class="fab fa-github mr-2"></i> GitHub
                         </a>
                     </div>
@@ -300,7 +296,7 @@
                 <!-- Testimonial 1 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
                     <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
+                        <div class="text-orange-400 mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -321,7 +317,7 @@
                 <!-- Testimonial 2 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
                     <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
+                        <div class="text-orange-400 mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -352,8 +348,8 @@
                     
                     <div class="space-y-6">
                         <div class="flex items-center">
-                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-indigo-600"></i>
+                            <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-orange-400"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">Email</h4>
@@ -361,8 +357,8 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone-alt text-indigo-600"></i>
+                            <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-orange-400"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800 i18n-phone">Téléphone</h4>
@@ -374,10 +370,10 @@
                     <div class="mt-8">
                         <h4 class="font-semibold text-gray-800 mb-4 i18n-follow">Suivez-nous</h4>
                         <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/company/pewty" class="bg-gray-200 hover:bg-indigo-100 p-3 rounded-full text-gray-600 hover:text-indigo-600 transition duration-300">
+                            <a href="https://www.linkedin.com/company/pewty" class="bg-gray-200 hover:bg-orange-100 p-3 rounded-full text-gray-600 hover:text-orange-400 transition duration-300">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://github.com/pewty-fr/" class="bg-gray-200 hover:bg-indigo-100 p-3 rounded-full text-gray-600 hover:text-indigo-600 transition duration-300">
+                            <a href="https://github.com/pewty-fr/" class="bg-gray-200 hover:bg-orange-100 p-3 rounded-full text-gray-600 hover:text-orange-400 transition duration-300">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -388,21 +384,21 @@
                     <form class="bg-white p-8 rounded-xl shadow-md">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 font-medium mb-2 i18n-form-name">Nom complet</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent">
                         </div>
                         <div class="mb-6">
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent">
                         </div>
                         <div class="mb-6">
                             <label for="company" class="block text-gray-700 font-medium mb-2 i18n-form-company">Entreprise</label>
-                            <input type="text" id="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
+                            <input type="text" id="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent">
                         </div>
                         <div class="mb-6">
                             <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"></textarea>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 i18n-form-send-message">
+                        <button type="submit" class="w-full bg-orange-400 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 i18n-form-send-message">
                             Envoyer le message
                         </button>
                     </form>
@@ -416,7 +412,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <img src="https://raw.githubusercontent.com/pewty-fr/website-public/refs/heads/github-pages/assets/assets/logo-50.png" alt="Pewty Logo" class="h-10">
+                    <img src="https://raw.githubusercontent.com/pewty-fr/website-public/refs/heads/github-pages/images/favicon.png" alt="Pewty Logo" class="h-10">
                     <span class="text-white font-bold text-2xl mb-6 block">PEWTY</span>
                     <p class="text-gray-400 i18n-description">Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et migration cloud.</p>
                 </div>
@@ -448,7 +444,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-orange-400 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -517,14 +513,14 @@
             const cloudsContainer = document.querySelector('.floating-clouds');
             if (!cloudsContainer) return;
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 10; i++) {
                 const cloud = document.createElement('div');
                 cloud.className = 'cloud';
                 
                 // Random size
                 const size = Math.random() * 100 + 50;
                 cloud.style.width = `${size}px`;
-                cloud.style.height = `${size * 0.6}px`;
+                cloud.style.height = `${size}px`;
                 
                 // Random position
                 cloud.style.left = `${Math.random() * 100}%`;
@@ -532,7 +528,7 @@
                 
                 // Random animation
                 const duration = Math.random() * 30 + 20;
-                cloud.style.animation = `float ${duration}s ease-in-out infinite`;
+                cloud.style.animation = `moveClouds ${duration}s linear infinite`;
                 
                 cloudsContainer.appendChild(cloud);
             }
@@ -557,7 +553,7 @@
                 .catch(error => console.error('Error loading JSON:', error));
             }
         }
-        i18n();
+        window.addEventListener('load', i18n);
     </script>
 </body>
 </html>
