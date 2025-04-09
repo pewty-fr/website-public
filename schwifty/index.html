@@ -42,22 +42,22 @@
                     </div>
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="#features" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Features</a>
-                    <a href="#how-it-works" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">How It Works</a>
-                    <a href="#pricing" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Pricing</a>
+                    <a href="#features" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-features">Features</a>
+                    <a href="#how-it-works" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-works">How It Works</a>
+                    <a href="#pricing" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium i18n-pricing">Pricing</a>
                     <a href="#contact" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Contact</a>
                 </div>
                 <div class="flex items-center">
-                    <a href="#pricing" class="ml-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white gradient-bg hover:opacity-90">
+                    <a href="#pricing" class="ml-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white gradient-bg hover:opacity-90 i18n-started">
                         Get Started
                     </a>
-                    <a href="https://app.schwifty.fr" class="ml-4 inline-flex items-center px-4 py-2 border border-indigo-400 rounded-md shadow-sm text-sm font-medium text-indigo-700 bg-white hover:bg-gray-50">
+                    <a href="https://app.schwifty.fr" class="ml-4 inline-flex items-center px-4 py-2 border border-indigo-400 rounded-md shadow-sm text-sm font-medium text-indigo-700 bg-white hover:bg-gray-50 i18n-connect">
                         Connect
                     </a>
 
                 <select id="languageSelect" class="ml-8 block px-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200 focus:ring-opacity-50" onchange="i18n()">
-                    <option value="fr">Français</option>
                     <option value="en">English</option>
+                    <option value="fr">Français</option>
                 </select>
                 </div>
             </div>
@@ -67,18 +67,18 @@
     <!-- Hero Section -->
     <div class="gradient-bg">
         <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 i18n-title">
                 Kubernetes Made <span class="underline decoration-yellow-300">Simple</span>
             </h1>
-            <p class="mt-6 text-xl text-indigo-100 max-w-3xl mx-auto">
+            <p class="mt-6 text-xl text-indigo-100 max-w-3xl mx-auto i18n-description">
                 Schwifty is the intuitive Kubernetes dashboard that empowers everyone to harness the power of containers - securely and efficiently.
             </p>
             <div class="mt-10 flex justify-center space-x-4">
-                <a href="#pricing" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50">
+                <a href="#pricing" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50 i18n-started">
                     Get Started
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-                <a href="#features" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 bg-opacity-60 hover:bg-opacity-70">
+                <a href="#features" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 bg-opacity-60 hover:bg-opacity-70 i18n-learn-more">
                     Learn More
                 </a>
             </div>
@@ -89,11 +89,11 @@
     <div id="features" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
-                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase i18n-features">Features</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl i18n-features-title">
                     A better way to manage Kubernetes
                 </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto i18n-features-description">
                     Schwifty combines powerful features with an intuitive interface to make Kubernetes accessible to everyone.
                 </p>
             </div>
@@ -106,8 +106,8 @@
                             <i class="fas fa-shield-alt text-xl"></i>
                         </div>
                         <div class="mt-5">
-                            <h3 class="text-lg font-medium text-gray-900">Secure by Design</h3>
-                            <p class="mt-2 text-base text-gray-500">
+                            <h3 class="text-lg font-medium text-gray-900 i18n-feature-1-title">Secure by Design</h3>
+                            <p class="mt-2 text-base text-gray-500 i18n-feature-1-description">
                                 Built with security first. Role-based access control, audit logging, and encryption ensure your clusters stay protected.
                             </p>
                         </div>
@@ -119,8 +119,8 @@
                             <i class="fas fa-sliders-h text-xl"></i>
                         </div>
                         <div class="mt-5">
-                            <h3 class="text-lg font-medium text-gray-900">Highly Customizable</h3>
-                            <p class="mt-2 text-base text-gray-500">
+                            <h3 class="text-lg font-medium text-gray-900 i18n-feature-2-title">Highly Customizable</h3>
+                            <p class="mt-2 text-base text-gray-500 i18n-feature-2-description">
                                 Tailor the dashboard to your needs with customizable views, navigations, and actions that match your team's processes.
                             </p>
                         </div>
@@ -132,8 +132,8 @@
                             <i class="fas fa-graduation-cap text-xl"></i>
                         </div>
                         <div class="mt-5">
-                            <h3 class="text-lg font-medium text-gray-900">Beginner Friendly</h3>
-                            <p class="mt-2 text-base text-gray-500">
+                            <h3 class="text-lg font-medium text-gray-900 i18n-feature-3-title">Beginner Friendly</h3>
+                            <p class="mt-2 text-base text-gray-500 i18n-feature-3-description">
                                 Lightweight views, filtered navigation, and simplified actions make Kubernetes approachable for newcomers.
                             </p>
                         </div>
@@ -147,11 +147,11 @@
     <div id="how-it-works" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
-                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">How It Works</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase i18n-works">How It Works</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl i18n-works-title">
                     Get started in minutes
                 </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto i18n-works-description">
                     Schwifty connects to your existing Kubernetes clusters with minimal setup required.
                 </p>
             </div>
@@ -163,8 +163,8 @@
                         <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
                             <span class="text-xl font-bold">1</span>
                         </div>
-                        <h3 class="mt-4 text-lg font-medium text-gray-900">Connect Your Cluster</h3>
-                        <p class="mt-2 text-base text-gray-500">
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 i18n-work-1-title">Connect Your Cluster</h3>
+                        <p class="mt-2 text-base text-gray-500 i18n-work-1-description">
                             Deploy our Schwifty backend in your clusters using Helm charts.
                         </p>
                     </div>
@@ -174,8 +174,8 @@
                         <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
                             <span class="text-xl font-bold">2</span>
                         </div>
-                        <h3 class="mt-4 text-lg font-medium text-gray-900">Configure Access</h3>
-                        <p class="mt-2 text-base text-gray-500">
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 i18n-work-2-title">Configure Access</h3>
+                        <p class="mt-2 text-base text-gray-500 i18n-work-2-description">
                             Set up authentication method to control users login.
                         </p>
                     </div>
@@ -185,8 +185,8 @@
                         <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
                             <span class="text-xl font-bold">3</span>
                         </div>
-                        <h3 class="mt-4 text-lg font-medium text-gray-900">Start Managing</h3>
-                        <p class="mt-2 text-base text-gray-500">
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 i18n-work-3-title">Start Managing</h3>
+                        <p class="mt-2 text-base text-gray-500 i18n-work-3-description">
                             Use the intuitive interface to deploy, monitor, and troubleshoot your applications.
                         </p>
                     </div>
@@ -195,12 +195,12 @@
                 <div class="mt-16 bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-8">
-                            <h3 class="text-2xl font-bold text-gray-900">Live Demo</h3>
-                            <p class="mt-4 text-gray-600">
+                            <h3 class="text-2xl font-bold text-gray-900 i18n-demo">Live Demo</h3>
+                            <p class="mt-4 text-gray-600 i18n-demo-description">
                                 Try Schwifty right in your browser with our interactive demo cluster. No installation required.
                             </p>
                             <div class="mt-6">
-                                <a href="https://app.schwifty.fr/#/discovery?endpoint=https://demo.schwifty.fr" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white gradient-bg hover:opacity-90">
+                                <a href="https://app.schwifty.fr/#/discovery?endpoint=https://demo.schwifty.fr" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white gradient-bg hover:opacity-90 i18n-demo-launch">
                                     Launch Demo
                                     <i class="fas fa-external-link-alt ml-2"></i>
                                 </a>
@@ -224,11 +224,11 @@
     <div id="pricing" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
-                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Pricing</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase i18n-pricing">Pricing</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl i18n-pricing-title">
                     Simple, transparent pricing
                 </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto i18n-pricing-description">
                     Choose the plan that fits your needs. No hidden fees, cancel anytime.
                 </p>
             </div>
@@ -244,11 +244,11 @@
                         </div>
                         <div class="mt-4 flex items-baseline text-5xl font-extrabold">
                             0€
-                            <span class="ml-1 text-2xl font-medium text-gray-500">
-                                /month
+                            <span class="ml-1 text-2xl font-medium text-gray-500 i18n-pricing-divider">
+                                /month/cluster
                             </span>
                         </div>
-                        <p class="mt-5 text-lg text-gray-500">
+                        <p class="mt-5 text-lg text-gray-500 i18n-pricing-1-description">
                             Perfect for individuals and small teams getting started with Kubernetes.
                         </p>
                     </div>
@@ -258,7 +258,7 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-support-community">
                                     Community support
                                 </p>
                             </li>
@@ -266,7 +266,7 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-feat-limited-clusters">
                                     Up to 2 clusters
                                 </p>
                             </li>
@@ -274,13 +274,13 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-feat-unlimited-users">
                                     Unlimited users
                                 </p>
                             </li>
                         </ul>
                         <div class="rounded-md shadow">
-                            <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                            <a href="https://github.com/pewty-fr/schwifty-public" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50 i18n-started">
                                 Get started
                             </a>
                         </div>
@@ -291,17 +291,17 @@
                 <div class="pricing-card transition-all duration-300 ease-in-out flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
                         <div>
-                            <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600" id="tier-standard">
+                            <h3 class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-100 text-indigo-600 i18n-pricing-1-name" id="tier-standard">
                                 Pro
                             </h3>
                         </div>
                         <div class="mt-4 flex items-baseline text-5xl font-extrabold">
-                            49€
-                            <span class="ml-1 text-2xl font-medium text-gray-500">
+                            TBD
+                            <span class="ml-1 text-2xl font-medium text-gray-500 i18n-pricing-divider">
                                 /month/cluster
                             </span>
                         </div>
-                        <p class="mt-5 text-lg text-gray-500">
+                        <p class="mt-5 text-lg text-gray-500 i18n-pricing-2-description">
                             For growing teams that need more power and flexibility.
                         </p>
                     </div>
@@ -311,7 +311,7 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-support-email">
                                     Email support
                                 </p>
                             </li>
@@ -319,7 +319,7 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-feat-unlimited-clusters">
                                     Unlimited clusters
                                 </p>
                             </li>
@@ -327,16 +327,16 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-feat-unlimited-users">
                                     Unlimited users
                                 </p>
                             </li>
                         </ul>
-                        <div class="rounded-md shadow">
+                        <!-- <div class="rounded-md shadow">
                             <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white gradient-bg hover:opacity-90">
                                 Get started
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -349,12 +349,12 @@
                             </h3>
                         </div>
                         <div class="mt-4 flex items-baseline text-5xl font-extrabold">
-                            199€
-                            <span class="ml-1 text-2xl font-medium text-gray-500">
+                            TBD
+                            <span class="ml-1 text-2xl font-medium text-gray-500 i18n-pricing-divider">
                                 /month/cluster
                             </span>
                         </div>
-                        <p class="mt-5 text-lg text-gray-500">
+                        <p class="mt-5 text-lg text-gray-500 i18n-pricing-3-description">
                             For organizations with complex Kubernetes environments.
                         </p>
                     </div>
@@ -364,7 +364,7 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-support-priority">
                                     24/7 priority support
                                 </p>
                             </li>
@@ -372,7 +372,7 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-feat-unlimited-clusters">
                                     Unlimited clusters
                                 </p>
                             </li>
@@ -380,16 +380,16 @@
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-check-circle text-green-500"></i>
                                 </div>
-                                <p class="ml-3 text-base text-gray-700">
+                                <p class="ml-3 text-base text-gray-700 i18n-pricing-feat-unlimited-users">
                                     Unlimited users
                                 </p>
                             </li>
                         </ul>
-                        <div class="rounded-md shadow">
+                        <!-- <div class="rounded-md shadow">
                             <a href="#contact" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
                                 Contact sales
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -400,17 +400,17 @@
     <div class="bg-indigo-700">
         <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                <span class="block">Ready to simplify your Kubernetes?</span>
-                <span class="block">Get started with Schwifty today.</span>
+                <span class="block i18n-simplify">Ready to simplify your Kubernetes?</span>
+                <span class="block i18n-today">Get started with Schwifty today.</span>
             </h2>
             <div class="mt-8 flex justify-center">
                 <div class="inline-flex rounded-md shadow">
-                    <a href="#pricing" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                    <a href="#pricing" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 i18n-">
                         Get started
                     </a>
                 </div>
                 <div class="ml-3 inline-flex">
-                    <a href="https://app.schwifty.fr/#/discovery?endpoint=https://demo.schwifty.fr" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-200 bg-indigo-600 hover:bg-indigo-700">
+                    <a href="https://app.schwifty.fr/#/discovery?endpoint=https://demo.schwifty.fr" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-200 bg-indigo-600 hover:bg-indigo-700 i18n-demo">
                         Live demo
                     </a>
                 </div>
@@ -574,7 +574,7 @@
         function i18n() {
             var language = document.getElementById("languageSelect").value;
             if (language) {
-                fetch(`/lang/${language}.json`)
+                fetch(`/schwifty/lang/${language}.json`)
                 .then(response => response.json())
                 .then(data => {
                     for (const [key, value] of Object.entries(data)) {
