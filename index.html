@@ -72,10 +72,10 @@
 
         @keyframes moveClouds {
           0% {
-            transform: translateX(-100%);
+            transform: translateX(-300%);
           }
           100% {
-            transform: translateX(100%);
+            transform: translateX(300%);
           }
         }
     </style>
@@ -357,12 +357,7 @@
                             </a>
                             <a href="https://github.com/pewty-fr/" class="bg-gray-200 hover:bg-orange-100 p-3 rounded-full text-gray-600 hover:text-orange-400 transition duration-300">
                                 <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2">
+                            </a>1
                     <form class="bg-white p-8 rounded-xl shadow-md">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 font-medium mb-2 i18n-form-name">Nom complet</label>
@@ -509,7 +504,7 @@
                 cloud.style.top = `${Math.random() * 100}%`;
                 
                 // Random animation
-                const duration = Math.random() * 30 + 20;
+                const duration = Math.random() * 120 + 30;
                 cloud.style.animation = `moveClouds ${duration}s linear infinite`;
                 
                 cloudsContainer.appendChild(cloud);
