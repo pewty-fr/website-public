@@ -115,9 +115,12 @@
         
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 Je tiens à remercier l’équipe de Pewty pour la qualité de notre collaboration. Leur expertise sur Kubernetes, notamment dans le déploiement de runners GitHub Actions, combinée à leur capacité à proposer des solutions innovantes, a été un réel moteur dans l’avancement de notre projet. Leur accompagnement est à la fois rigoureux, réactif et toujours orienté valeur. On sent une vraie implication et un engagement sincère dans la mission. Une collaboration fluide, constructive et très professionnelle.3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-approach">Approche</a>
-                <a href="#founder" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-founder">Fondateur</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-400 hover:bg-gray-50 i18n-contact">Contact</a>
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-welcome">Accueil</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-expert">Expertise</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-approach">Approche</a>
+                <a href="#founder" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-founder">Fondateur</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
                 <select id="languageSelect" class="block px-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200 focus:ring-opacity-50" onchange="i18n()">
                     <option value="fr">Français</option>
                     <option value="en">English</option>
@@ -164,11 +167,31 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 i18n-our-expert-cloud">Notre Expertise Cloud</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto i18n-solutions">Des solutions techniques sur mesure pour répondre à vos défis d'infrastructure et de performance.</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto i18n-tech-solutions">Des solutions techniques sur mesure pour répondre à vos défis d'infrastructure et de performance.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
+                <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
+                    <div class="text-orange-400 mb-6">
+                        <img src="/images/schwifty.png" alt="Kubernetes" class="h-12">
+                        
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        Schwifty
+                        <a href="https://schwifty.fr" class="text-gray-400 pl-4 hover:text-orange-500 transition duration-300">
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                        </a>
+                    </h3>
+                    <p class="text-gray-600 mb-4 i18n-schwifty-description">Schwifty est notre tableau de bord Kubernetes intuitif qui permet à tout le monde d'exploiter la puissance des conteneurs.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center i18n-schwifty-feat-1"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Sécurité par conception</li>
+                        <li class="flex items-center i18n-schwifty-feat-2"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Hautement personnalisable</li>
+                        <li class="flex items-center i18n-schwifty-feat-3"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Accessible à tous par sa simplicité</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
                 <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
                     <div class="text-orange-400 mb-6">
                         <i class="fas fa-shield-alt text-4xl"></i>
@@ -182,7 +205,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 2 -->
+                <!-- Service 3 -->
                 <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
                     <div class="text-orange-400 mb-6">
                         <i class="fas fa-cloud-upload-alt text-4xl"></i>
@@ -196,7 +219,7 @@
                     </ul>
                 </div>
                 
-                <!-- Service 3 -->
+                <!-- Service 4 -->
                 <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
                     <div class="text-orange-400 mb-6">
                         <i class="fas fa-server text-4xl"></i>
@@ -208,7 +231,6 @@
                         <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Containers & Microservices</li>
                     </ul>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -290,32 +312,38 @@
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto i18n-collaboration">Ce que disent nos clients de notre collaboration.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Testimonial 1 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
-                    <p class="text-gray-600 mb-6 i18n-testi-1-msg">"Je tiens à remercier l’équipe de Pewty pour la qualité de notre collaboration. Leur expertise sur Kubernetes, notamment dans le déploiement de runners GitHub Actions, combinée à leur capacité à proposer des solutions innovantes, a été un réel moteur dans l’avancement de notre projet. Leur accompagnement est à la fois rigoureux, réactif et toujours orienté valeur. On sent une vraie implication et un engagement sincère dans la mission. Une collaboration fluide, constructive et très professionnelle."</p>
-                    <a href="https://www.linkedin.com/in/jeremy-planckeel-%F0%9F%94%86%F0%9F%8C%A9%EF%B8%8F-44426112b/" target="_blank">
-                        <div class="flex items-center">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQEX3schQnYxxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1662024995176?e=1750291200&v=beta&t=zbgp8tZZdo5xJRMzjj3jg1zA9Q5sXPPe65xzIFFwG4g" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Jérémy Planckeel</h4>
-                                <p class="text-gray-500 i18n-testi-1-title">Lead DevOps, Energy Pool</p>
-                            </div>
+                    <p class="text-gray-600 mb-6 i18n-testi-1-msg">"Je tiens à remercier l’équipe de Pewty pour la qualité de notre collaboration. Leur expertise sur Kubernetes, notamment dans le déploiement de runners GitHub Actions, combinée à leur capacité à proposer des solutions innovantes, a été un réel moteur dans l’avancement de notre projet.<br/><br/>Leur accompagnement est à la fois rigoureux, réactif et toujours orienté valeur. On sent une vraie implication et un engagement sincère dans la mission. Une collaboration fluide, constructive et très professionnelle."</p>
+                    <div class="flex items-center">
+                        <img src="https://media.licdn.com/dms/image/v2/C4D03AQEX3schQnYxxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1662024995176?e=1750291200&v=beta&t=zbgp8tZZdo5xJRMzjj3jg1zA9Q5sXPPe65xzIFFwG4g" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Jérémy Planckeel</h4>
+                            <p class="text-gray-500 i18n-testi-1-title">Lead DevOps, Energy Pool</p>
+                            <a href="https://www.linkedin.com/in/jeremy-planckeel-%F0%9F%94%86%F0%9F%8C%A9%EF%B8%8F-44426112b/" class="text-gray-400 hover:text-orange-500 transition duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <!-- <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
-                    <p class="text-gray-600 mb-6 i18n-testi-2-msg">"Nous avons fait appel à Pewty pour sécuriser notre infrastructure Azure. Les recommandations ont été claires, implémentées rapidement et ont considérablement amélioré notre posture de sécurité."</p>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <p class="text-gray-600 mb-6 i18n-testi-2-msg">Le travail avec Tanguy et Pewty a été un véritable accélérateur.Grâce à nos échanges réguliers, nous avons pu confronter nos approches et approfondir des sujets pointus liés aux infrastructures Kubernetes. Leur expertise technique s’est révélée précieuse, tant sur les aspects de design d’architecture que sur l’optimisation opérationnelle.<br/><br/>
+                        Leur outil de visualisation des objets Kubernetes est particulièrement efficace : il offre une représentation claire et intuitive de l’état de l’infrastructure, ce qui facilite la compréhension, le diagnostic, et la prise de décision.
+                    </p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFGNePi_-BJxA/profile-displayphoto-shrink_400_400/B4DZXsnvVlGkAg-/0/1743431595698?e=1750896000&v=beta&t=pEK8mb8M3Ztdxm9fqszTOt3ttowKYj7lPPlhm4JTU6g" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-semibold text-gray-800">Sophie Lambert</h4>
-                            <p class="text-gray-500 i18n-testi-2-title">DSI, Groupe Industriel</p>
+                            <h4 class="font-semibold text-gray-800">Tanguy Charon</h4>
+                            <p class="text-gray-500 i18n-testi-1-title">CEO DoNow & DevOps</p>
+                            <a href="https://www.linkedin.com/in/tanguy-charon-devops/" class="text-gray-400 hover:text-orange-500 transition duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
