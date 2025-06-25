@@ -97,18 +97,59 @@
                         <a href="#founder" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-founder">Fondateur</a>
                         <a href="#contact" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium">Contact</a>
                         
-                        <select id="languageSelect" class="block px-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200 focus:ring-opacity-50" onchange="i18n()">
-                            <option value="fr">Français</option>
-                            <option value="en">English</option>
-                        </select>
+                        <div class="md:flex md:items-center"></div>
+                            <div class="ml-8 block px-2 bg-white">
+                                <div>
+                                    <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" name="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    <i class="fas fa-globe"></i>
+                                    </button>
+                                </div>
+                                <div class="hidden absolute z-10 mt-2 w-22 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" name="menu-language">
+                                    <div class="py-1" role="none">
+                                        <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('fr')">Français</a>
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('en')">English</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-400 focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                    <div class="md:hidden">
+                        <div class="ml-8 block px-2 bg-white">
+                            <div>
+                                <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" name="menu-button" aria-expanded="true" aria-haspopup="true">
+                                <i class="fas fa-globe"></i>
+                                </button>
+                            </div>
+
+                            <!--
+                                Dropdown menu, show/hide based on menu state.
+
+                                Entering: "transition ease-out duration-100"
+                                From: "transform opacity-0 scale-95"
+                                To: "transform opacity-100 scale-100"
+                                Leaving: "transition ease-in duration-75"
+                                From: "transform opacity-100 scale-100"
+                                To: "transform opacity-0 scale-95"
+                            -->
+                            <div class="hidden absolute z-10 mt-2 w-22 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" name="menu-language">
+                                <div class="py-1" role="none">
+                                    <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('fr')">Français</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('en')">English</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:hidden pt-1">
+                        <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-400 focus:outline-none">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,10 +162,6 @@
                 <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-approach">Approche</a>
                 <a href="#founder" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-founder">Fondateur</a>
                 <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
-                <select id="languageSelect" class="block px-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200 focus:ring-opacity-50" onchange="i18n()">
-                    <option value="fr">Français</option>
-                    <option value="en">English</option>
-                </select>
             </div>
         </div>
     </nav>
@@ -547,23 +584,50 @@
         // Initialize clouds
         window.addEventListener('load', createClouds);
 
-        function i18n() {
-            var language = document.getElementById("languageSelect").value;
-            if (language) {
-                fetch(`/lang/${language}.json`)
-                .then(response => response.json())
-                .then(data => {
-                    for (const [key, value] of Object.entries(data)) {
-                        elements = document.getElementsByClassName(`i18n-${key}`);
-                        for (let i = 0; i < elements.length; i++) {
-                            elements[i].innerHTML = value;
-                        }
+        function i18n(lang) {
+            fetch(`/lang/${lang}.json`)
+            .then(response => response.json())
+            .then(data => {
+                for (const [key, value] of Object.entries(data)) {
+                    elements = document.getElementsByClassName(`i18n-${key}`);
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = value;
                     }
-                })
-                .catch(error => console.error('Error loading JSON:', error));
-            }
+                }
+            })
+            .catch(error => console.error('Error loading JSON:', error));
         }
         window.addEventListener('load', i18n);
+
+        const menuButtons = document.getElementsByName("menu-button");
+
+        menuButtons[0].addEventListener('click', () => menuLangClick(0));
+        menuButtons[1].addEventListener('click', () => menuLangClick(1));
+
+        function menuLangClick(id){
+            const menuLang = document.getElementsByName("menu-language")[id];
+            if (menuLang.classList.contains('hidden')) {
+                menuLang.classList.remove('hidden');
+                menuLang.style.transform = 'scale(0.95)';
+                // menuLang.style.opacity = '0';
+                menuLang.style.transition = 'transform 100ms ease-out, opacity 100ms ease-out';
+                // Trigger the transition
+                setTimeout(() => {
+                    menuLang.style.transform = 'scale(1)';
+                    // menuLang.style.opacity = '1';
+                }, 0);
+            }else{
+                menuLang.classList.add('hidden');
+                menuLang.style.transform = 'scale(1)';
+                // menuLang.style.opacity = '1';
+                menuLang.style.transition = 'transform 75ms ease-in, opacity 75ms ease-in';
+                // Trigger the transition
+                setTimeout(() => {
+                    menuLang.style.transform = 'scale(0.95)';
+                    // menuLang.style.opacity = '0';
+                }, 0);
+            }
+        }
     </script>
 </body>
 </html>
