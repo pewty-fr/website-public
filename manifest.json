@@ -1,11 +1,11 @@
 {
-    "name": "website",
-    "short_name": "website",
+    "name": "Pewty",
+    "short_name": "Pewty",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Pewty (pronounced 'pew-tea') is a french company doing IT consulting for Cloud technologies.",
+    "background_color": "#ffffff",
+    "theme_color": "#f5a149",
+    "description": "Pewty (pronounced 'pew-tea') is a French company doing IT consulting for Cloud technologies.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

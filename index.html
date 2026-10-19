@@ -2,654 +2,437 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pewty</title>
-    <meta name="description" content="Pewty (pronounced 'pew-tea') is a french company doing IT consulting for Cloud technologies.">
-    <link rel="icon" type="image/png" href="images/favicon.png"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .cloud-bg {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-        
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .animate-pulse-slow {
-            animation: pulse 6s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.9; }
-            50% { opacity: 1; }
-            100% { opacity: 0.9; }
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #e5b846;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .floating-clouds {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .cloud {
-            position: absolute;
-            background-image: url('/images/cloud.svg');
-            background-size: cover;
-            opacity: 0.8;
-            filter: invert(100%);
-        }
+    <title data-i18n="meta.title">Pewty — Conseil Cloud &amp; DevOps · AWS, Kubernetes</title>
+    <meta name="description" data-i18n-attr="content:meta.description" content="Pewty accompagne vos projets d'infrastructure et de migration cloud : architecture AWS et Kubernetes, CI/CD, sécurité et observabilité.">
+    <link rel="canonical" href="https://pewty.fr/">
 
-        @keyframes moveClouds {
-          0% {
-            transform: translateX(-300%);
-          }
-          100% {
-            transform: translateX(300%);
-          }
-        }
-    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pewty">
+    <meta property="og:url" content="https://pewty.fr/">
+    <meta property="og:title" data-i18n-attr="content:meta.title" content="Pewty — Conseil Cloud &amp; DevOps · AWS, Kubernetes">
+    <meta property="og:description" data-i18n-attr="content:meta.description" content="Pewty accompagne vos projets d'infrastructure et de migration cloud : architecture AWS et Kubernetes, CI/CD, sécurité et observabilité.">
+    <meta name="theme-color" content="#d4e8fa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#071021" media="(prefers-color-scheme: dark)">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/main.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Pewty",
+        "legalName": "Pewty SAS",
+        "url": "https://pewty.fr/",
+        "logo": "https://pewty.fr/images/favicon.png",
+        "email": "contact@pewty.fr",
+        "telephone": "+33749831837",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "630 chemin de Graboz",
+            "postalCode": "01140",
+            "addressLocality": "Saint-Étienne-sur-Chalaronne",
+            "addressCountry": "FR"
+        },
+        "founder": { "@type": "Person", "name": "Tanguy Falconnet" },
+        "sameAs": ["https://www.linkedin.com/company/pewty", "https://github.com/pewty-fr"]
+    }
+    </script>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <img src="images/favicon.png" alt="Pewty Logo" class="h-10">
-                    <span class="text-gray-700 px-3 font-bold text-2xl">PEWTY</span>
+<body>
+    <!-- Icons & cloud shapes, referenced with <use href="#..."> -->
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+            <linearGradient id="cloud-fill" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0.35" style="stop-color: var(--cloud-top)"/>
+                <stop offset="1" style="stop-color: var(--cloud-bottom)"/>
+            </linearGradient>
+        </defs>
+        <symbol id="cloud-a" viewBox="0 0 200 100">
+            <g fill="url(#cloud-fill)"><rect x="20" y="55" width="165" height="40" rx="20"/><circle cx="60" cy="60" r="28"/><circle cx="100" cy="45" r="38"/><circle cx="145" cy="58" r="30"/></g>
+        </symbol>
+        <symbol id="cloud-b" viewBox="0 0 200 100">
+            <g fill="url(#cloud-fill)"><rect x="10" y="60" width="185" height="32" rx="16"/><circle cx="50" cy="62" r="22"/><circle cx="85" cy="48" r="30"/><circle cx="125" cy="44" r="34"/><circle cx="163" cy="62" r="22"/></g>
+        </symbol>
+        <symbol id="cloud-c" viewBox="0 0 200 100">
+            <g fill="url(#cloud-fill)"><rect x="30" y="58" width="140" height="36" rx="18"/><circle cx="70" cy="55" r="30"/><circle cx="112" cy="42" r="36"/><circle cx="148" cy="64" r="22"/></g>
+        </symbol>
+
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+        <symbol id="i-upload" viewBox="0 0 24 24"><path d="M16 16l-4-4-4 4M12 12v9"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+        <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main" data-i18n="nav.skip">Aller au contenu</a>
+
+    <header class="site-header">
+        <div class="container header-bar">
+            <a class="brand" href="#home" aria-label="Pewty">
+                <img src="images/favicon.png" alt="" width="34" height="34">
+                <span>PEWTY</span>
+            </a>
+
+            <nav class="nav" id="nav-menu" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.label">
+                <a href="#services" data-i18n="nav.services">Expertise</a>
+                <a href="#products" data-i18n="nav.products">Produits</a>
+                <a href="#about" data-i18n="nav.approach">Approche</a>
+                <a href="#founder" data-i18n="nav.founder">Fondateur</a>
+                <a href="#testimonials" data-i18n="nav.testimonials">Témoignages</a>
+                <a class="btn btn-primary btn-sm nav-cta" href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-tools">
+                <div class="lang-switch" role="group" aria-label="Langue" data-i18n-attr="aria-label:nav.language">
+                    <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+                    <button type="button" data-lang="en" aria-pressed="false">EN</button>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-welcome">Accueil</a>
-                        <a href="#services" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-expert">Expertise</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-approach">Approche</a>
-                        <a href="#founder" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium i18n-founder">Fondateur</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-orange-400 px-3 py-2 text-sm font-medium">Contact</a>
-                        
-                        <div class="md:flex md:items-center"></div>
-                            <div class="ml-8 block px-2 bg-white">
-                                <div>
-                                    <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" name="menu-button" aria-expanded="true" aria-haspopup="true">
-                                    <i class="fas fa-globe"></i>
-                                    </button>
-                                </div>
-                                <div class="hidden absolute z-10 mt-2 w-22 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" name="menu-language">
-                                    <div class="py-1" role="none">
-                                        <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('fr')">Français</a>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('en')">English</a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:hidden">
-                        <div class="ml-8 block px-2 bg-white">
+                <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Ouvrir le menu" data-i18n-attr="aria-label:nav.toggle">
+                    <svg class="icon icon-open"><use href="#i-menu"/></svg>
+                    <svg class="icon icon-close"><use href="#i-close"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section id="home" class="hero sky-section">
+            <div class="sky" aria-hidden="true"></div>
+            <div class="container hero-inner">
+                <p class="hero-badge" data-i18n="hero.badge">Conseil Cloud &amp; DevOps</p>
+                <h1 data-i18n="hero.title">Votre partenaire en <span class="accent">technologies Cloud</span></h1>
+                <p class="hero-lead" data-i18n="hero.lead">Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et de migration cloud.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-lg" href="#contact"><span data-i18n="hero.cta">Discutons de votre projet</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+                    <a class="btn btn-ghost btn-lg" href="#services" data-i18n="hero.secondary">Nos expertises</a>
+                </div>
+                <ul class="hero-proof">
+                    <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="hero.proof1">AWS Certified Solutions Architect</span></li>
+                    <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="hero.proof2">Plus de 10 ans d'expérience cloud</span></li>
+                    <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="hero.proof3">Priorité à l'open source</span></li>
+                </ul>
+            </div>
+            <div class="container stack-strip">
+                <p class="stack-label" data-i18n="hero.stack">Technologies</p>
+                <ul>
+                    <li>Kubernetes</li><li>AWS</li><li>Scaleway</li><li>Terraform</li><li>Helm</li><li>FluxCD</li><li>GitHub Actions</li><li>GitLab CI</li><li>Prometheus</li><li>Grafana</li><li>Go</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow" data-i18n="services.eyebrow">Expertise</p>
+                    <h2 data-i18n="services.title">Notre expertise Cloud</h2>
+                    <p class="lead" data-i18n="services.lead">Des solutions techniques sur mesure pour répondre à vos défis d'infrastructure et de performance.</p>
+                </header>
+
+                <div class="grid grid-3">
+                    <article class="card service">
+                        <div class="icon-tile"><svg class="icon"><use href="#i-layers"/></svg></div>
+                        <h3 data-i18n="services.archi.title">Architecture Cloud</h3>
+                        <p data-i18n="services.archi.text">Conception d'infrastructures cloud sécurisées, évolutives et hautement disponibles.</p>
+                        <ul class="checklist">
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.archi.f1">Infrastructure as Code</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.archi.f2">Kubernetes &amp; conteneurs</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.archi.f3">Microservices</span></li>
+                        </ul>
+                    </article>
+
+                    <article class="card service">
+                        <div class="icon-tile"><svg class="icon"><use href="#i-upload"/></svg></div>
+                        <h3 data-i18n="services.migration.title">Migration Cloud</h3>
+                        <p data-i18n="services.migration.text">Accompagnement complet pour migrer vos applications et vos données vers les plateformes cloud (AWS, Scaleway).</p>
+                        <ul class="checklist">
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.migration.f1">Audit de votre infrastructure</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.migration.f2">Stratégie de migration</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.migration.f3">Optimisation des coûts</span></li>
+                        </ul>
+                    </article>
+
+                    <article class="card service">
+                        <div class="icon-tile"><svg class="icon"><use href="#i-shield"/></svg></div>
+                        <h3 data-i18n="services.devops.title">DevOps &amp; Sécurité</h3>
+                        <p data-i18n="services.devops.text">Mise en place de pipelines CI/CD et renforcement de la sécurité de vos applications cloud.</p>
+                        <ul class="checklist">
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.devops.f1">Automatisation des déploiements</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.devops.f2">Sécurité des données</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="services.devops.f3">Monitoring &amp; alerting</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section id="products" class="section section-alt">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow" data-i18n="products.eyebrow">Produits</p>
+                    <h2 data-i18n="products.title">Nos outils</h2>
+                    <p class="lead" data-i18n="products.lead">Nous développons nos propres outils pour rendre vos infrastructures plus simples à exploiter et à sécuriser.</p>
+                </header>
+
+                <div class="grid grid-2">
+                    <article class="card product">
+                        <div class="product-head">
+                            <img src="images/schwifty.png" alt="" width="52" height="52">
                             <div>
-                                <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" name="menu-button" aria-expanded="true" aria-haspopup="true">
-                                <i class="fas fa-globe"></i>
-                                </button>
-                            </div>
-
-                            <!--
-                                Dropdown menu, show/hide based on menu state.
-
-                                Entering: "transition ease-out duration-100"
-                                From: "transform opacity-0 scale-95"
-                                To: "transform opacity-100 scale-100"
-                                Leaving: "transition ease-in duration-75"
-                                From: "transform opacity-100 scale-100"
-                                To: "transform opacity-0 scale-95"
-                            -->
-                            <div class="hidden absolute z-10 mt-2 w-22 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" name="menu-language">
-                                <div class="py-1" role="none">
-                                    <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('fr')">Français</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-900 hover:text-indigo-600" onclick="i18n('en')">English</a>
-                                    
-                                </div>
+                                <h3>Schwifty</h3>
+                                <p class="product-tag" data-i18n="products.schwifty.tag">Tableau de bord Kubernetes</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="md:hidden pt-1">
-                        <button id="mobile-menu-button" class="text-gray-500 hover:text-orange-400 focus:outline-none">
-                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-welcome">Accueil</a>
-                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-expert">Expertise</a>
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-approach">Approche</a>
-                <a href="#founder" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 i18n-founder">Fondateur</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 cloud-bg relative overflow-hidden">
-        <div class="floating-clouds">
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="md:flex items-center justify-between">
-                <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-800 i18n-partner">Votre partenaire en <span class="text-orange-400">technologies Cloud</span></h1>
-                    <p class="text-xl md:text-2xl mb-8 text-gray-600 i18n-description">Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et migration cloud.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="bg-orange-400 text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300 i18n-discuss">Discutons de votre projet</a>
-                        <a href="#services" class="border-2 border-orange-400 text-orange-400 hover:bg-orange-50 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300 i18n-our-expert">Nos expertises</a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cloud Technologies" class="w-full max-w-md rounded-xl shadow-xl">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Logo -->
-    <section class="py-8 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-20">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" class="h-8 md:h-16 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go" class="h-8 md:h-12 opacity-70 hover:opacity-100 transition duration-300">
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 i18n-our-expert-cloud">Notre Expertise Cloud</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto i18n-tech-solutions">Des solutions techniques sur mesure pour répondre à vos défis d'infrastructure et de performance.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 pb-4">
-                <!-- Product 1 -->
-                <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-orange-400 mb-6">
-                        <img src="/images/schwifty.png" alt="Kubernetes" class="h-12">
-                        
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">
-                        Schwifty
-                        <a href="https://schwifty.fr" class="text-gray-400 pl-4 hover:text-orange-500 transition duration-300">
-                            <i class="fa-solid fa-up-right-from-square"></i>
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 mb-4 i18n-schwifty-description">Schwifty est notre tableau de bord Kubernetes intuitif qui permet à tout le monde d'exploiter la puissance des conteneurs.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center i18n-schwifty-feat-1"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Sécurité par conception</li>
-                        <li class="flex items-center i18n-schwifty-feat-2"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Hautement personnalisable</li>
-                        <li class="flex items-center i18n-schwifty-feat-3"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Accessible à tous par sa simplicité</li>
-                    </ul>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-orange-400 mb-6">
-                        <img src="https://raw.githubusercontent.com/pewty-fr/wirety/refs/heads/main/front/public/logo.svg" alt="WireGuard" class="h-12">
-                        
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">
-                        Wirety
-                        <a href="https://wirety-demo.pewty.fr" class="text-gray-400 pl-4 hover:text-orange-500 transition duration-300">
-                            <i class="fa-solid fa-up-right-from-square"></i>
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 mb-4 i18n-wirety-description">Wirety est notre solution VPN basée sur WireGuard, offrant une sécurité et une confidentialité optimales pour vos communications.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center i18n-wirety-feat-1"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Sécurité par conception</li>
-                        <li class="flex items-center i18n-wirety-feat-2"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Hautement personnalisable</li>
-                        <li class="flex items-center i18n-wirety-feat-3"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Accessible à tous par sa simplicité</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-orange-400 mb-6">
-                        <i class="fas fa-shield-alt text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-devops">DevOps & Sécurité</h3>
-                    <p class="text-gray-600 mb-4 i18n-setup-cicd">Mise en place de pipelines CI/CD et renforcement de la sécurité de vos applications cloud.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center i18n-automatisation"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Automatisation des déploiements</li>
-                        <li class="flex items-center i18n-data-security"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Sécurité des données</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Monitoring & Alerting</li>
-                    </ul>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-orange-400 mb-6">
-                        <i class="fas fa-cloud-upload-alt text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-cloud-migration">Migration Cloud</h3>
-                    <p class="text-gray-600 mb-4 i18n-migrate">Accompagnement complet pour migrer vos applications et données vers les plateformes cloud (AWS, Scaleway).</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center i18n-audit"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Audit de votre infrastructure</li>
-                        <li class="flex items-center i18n-strategy"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Stratégie de migration</li>
-                        <li class="flex items-center i18n-optim"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Optimisation des coûts</li>
-                    </ul>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="tech-card bg-white rounded-xl shadow-md p-8 transition duration-500">
-                    <div class="text-orange-400 mb-6">
-                        <i class="fas fa-server text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-archi">Architecture Cloud</h3>
-                    <p class="text-gray-600 mb-4 i18n-conception">Conception d'infrastructures cloud sécurisées, évolutives et haute disponibilité.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Infrastructure as Code</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-orange-300 mr-2"></i> Containers & Microservices</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 i18-our-approach">Notre Approche</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto i18n-methodology">Une méthodologie éprouvée pour des résultats concrets et mesurables.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-orange-400 font-bold text-2xl">1</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-analyze">Audit & Analyse</h3>
-                    <p class="text-gray-600 i18n-eval">Évaluation approfondie de votre infrastructure existante et identification des opportunités d'amélioration.</p>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-orange-400 font-bold text-2xl">2</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-conception-on-demand">Conception sur Mesure</h3>
-                    <p class="text-gray-600 i18n-dev-cloud">Développement d'une architecture cloud adaptée à vos besoins spécifiques et à votre budget.</p>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-orange-400 font-bold text-2xl">3</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 i18n-implem">Implémentation & Suivi</h3>
-                    <p class="text-gray-600 i18n-progressive-deployment">Déploiement progressif avec tests rigoureux et optimisation continue des performances.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founder Section -->
-    <section id="founder" class="py-16 bg-indigo-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center">
-                <div class="md:w-1/3 mb-12 md:mb-0 flex justify-center">
-                    <div class="relative">
-                        <img src="images/tanguyfalconnet.jpeg" alt="Tanguy Falconnet" class="w-64 h-64 rounded-full object-cover shadow-xl border-4 border-white">
-                        <div class="absolute -bottom-2 -right-2 bg-orange-400 text-white p-3 rounded-full">
-                            <i class="fas fa-code text-xl"></i>
+                        <p data-i18n="products.schwifty.text">Schwifty est notre tableau de bord Kubernetes intuitif, qui permet à tout le monde d'exploiter la puissance des conteneurs.</p>
+                        <ul class="checklist">
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="products.schwifty.f1">Sécurité par conception</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="products.schwifty.f2">Hautement personnalisable</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="products.schwifty.f3">Accessible à tous par sa simplicité</span></li>
+                        </ul>
+                        <div class="product-links">
+                            <a class="link-arrow" href="https://schwifty.fr"><span data-i18n="products.schwifty.link">Découvrir Schwifty</span><svg class="icon"><use href="#i-arrow"/></svg></a>
                         </div>
-                    </div>
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Tanguy Falconnet</h2>
-                    <p class="text-xl text-orange-400 mb-6 i18n-founder-title">Fondateur & Consultant Technique</p>
-                    <p class="text-gray-600 mb-6 i18n-founder-passionate">Passionné par les technologies cloud depuis plus de 10 ans, j'accompagne les entreprises dans leur transformation numérique avec une approche pragmatique et orientée résultats.</p>
-                    <p class="text-gray-600 mb-8 i18n-founder-desc">Mon expertise couvre la plateforme cloud AWS (Certified Solution Architect - Associate) avec une prédilection pour les solutions open-source.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/tanguy-falconnet" class="bg-orange-400 text-white hover:bg-orange-700 px-6 py-2 rounded-lg font-medium transition duration-300">
-                            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/tanguyfalconnet" class="bg-orange-400 text-white hover:bg-orange-700 px-6 py-2 rounded-lg font-medium transition duration-300">
-                            <i class="fab fa-github mr-2"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </article>
 
-    <!-- Testimonials Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 i18n-testimonials">Témoignages Clients</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto i18n-collaboration">Ce que disent nos clients de notre collaboration.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
-                    <p class="text-gray-600 mb-6 i18n-testi-1-msg">"Je tiens à remercier l’équipe de Pewty pour la qualité de notre collaboration. Leur expertise sur Kubernetes, notamment dans le déploiement de runners GitHub Actions, combinée à leur capacité à proposer des solutions innovantes, a été un réel moteur dans l’avancement de notre projet.<br/><br/>Leur accompagnement est à la fois rigoureux, réactif et toujours orienté valeur. On sent une vraie implication et un engagement sincère dans la mission. Une collaboration fluide, constructive et très professionnelle."</p>
-                    <div class="flex items-center">
-                        <img src="images/jeremyplanckeel.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Jérémy Planckeel</h4>
-                            <p class="text-gray-500 i18n-testi-1-title">Lead DevOps, Energy Pool</p>
-                            <a href="https://www.linkedin.com/in/jeremy-planckeel-%F0%9F%94%86%F0%9F%8C%A9%EF%B8%8F-44426112b/" class="text-gray-400 hover:text-orange-500 transition duration-300">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
-                    <p class="text-gray-600 mb-6 i18n-testi-2-msg">Le travail avec Tanguy et Pewty a été un véritable accélérateur.Grâce à nos échanges réguliers, nous avons pu confronter nos approches et approfondir des sujets pointus liés aux infrastructures Kubernetes. Leur expertise technique s’est révélée précieuse, tant sur les aspects de design d’architecture que sur l’optimisation opérationnelle.<br/><br/>
-                        Leur outil de visualisation des objets Kubernetes est particulièrement efficace : il offre une représentation claire et intuitive de l’état de l’infrastructure, ce qui facilite la compréhension, le diagnostic, et la prise de décision.
-                    </p>
-                    <div class="flex items-center">
-                        <img src="images/tanguycharon.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Tanguy Charon</h4>
-                            <p class="text-gray-500 i18n-testi-1-title">CEO DoNow & DevOps</p>
-                            <a href="https://www.linkedin.com/in/tanguy-charon-devops/" class="text-gray-400 hover:text-orange-500 transition duration-300">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex">
-                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 i18n-cloud-ready">Prêt à passer au Cloud ?</h2>
-                    <p class="text-gray-600 mb-8 i18n-help">Que vous ayez un projet précis ou simplement des questions sur les technologies cloud, nous sommes là pour vous aider.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-center">
-                            <div class="bg-orange-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-orange-400"></i>
-                            </div>
+                    <article class="card product">
+                        <div class="product-head">
+                            <img src="images/wirety.svg" alt="" width="52" height="52">
                             <div>
-                                <h4 class="font-semibold text-gray-800">Email</h4>
-                                <p class="text-gray-600">contact@pewty.fr</p>
+                                <h3>Wirety <span class="pill" data-i18n="products.wirety.badge">Open source</span></h3>
+                                <p class="product-tag" data-i18n="products.wirety.tag">Réseau maillé WireGuard</p>
                             </div>
                         </div>
-                        <div class="flex items-center">
-                            <div class="bg-orange-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone-alt text-orange-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 i18n-phone">Téléphone</h4>
-                                <p class="text-gray-600">+33 7 49 83 18 37</p>
-                            </div>
+                        <p data-i18n="products.wirety.text">Wirety orchestre vos réseaux WireGuard en maillage, avec une sécurité dynamique et une architecture zero-trust.</p>
+                        <ul class="checklist">
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="products.wirety.f1">Configuration des pairs automatique et en temps réel</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="products.wirety.f2">ACL zero-trust et réponse automatique aux incidents</span></li>
+                            <li><svg class="icon"><use href="#i-check"/></svg><span data-i18n="products.wirety.f3">Authentification OIDC (Keycloak, Dex…)</span></li>
+                        </ul>
+                        <div class="product-links">
+                            <a class="link-arrow" href="https://wirety-demo.pewty.fr"><span data-i18n="products.wirety.demo">Voir la démo</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+                            <a class="link-muted" href="https://github.com/pewty-fr/wirety"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
                         </div>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <h4 class="font-semibold text-gray-800 mb-4 i18n-follow">Suivez-nous</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/company/pewty" class="bg-gray-200 hover:bg-orange-100 p-3 rounded-full text-gray-600 hover:text-orange-400 transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/pewty-fr/" class="bg-gray-200 hover:bg-orange-100 p-3 rounded-full text-gray-600 hover:text-orange-400 transition duration-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach -->
+        <section id="about" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow" data-i18n="approach.eyebrow">Méthode</p>
+                    <h2 data-i18n="approach.title">Notre approche</h2>
+                    <p class="lead" data-i18n="approach.lead">Une méthodologie éprouvée pour des résultats concrets et mesurables.</p>
+                </header>
+
+                <ol class="steps">
+                    <li class="step">
+                        <span class="step-num">01</span>
+                        <h3 data-i18n="approach.s1.title">Audit &amp; analyse</h3>
+                        <p data-i18n="approach.s1.text">Évaluation approfondie de votre infrastructure existante et identification des opportunités d'amélioration.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-num">02</span>
+                        <h3 data-i18n="approach.s2.title">Conception sur mesure</h3>
+                        <p data-i18n="approach.s2.text">Développement d'une architecture cloud adaptée à vos besoins spécifiques et à votre budget.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-num">03</span>
+                        <h3 data-i18n="approach.s3.title">Mise en œuvre &amp; suivi</h3>
+                        <p data-i18n="approach.s3.text">Déploiement progressif avec des tests rigoureux et une optimisation continue des performances.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Founder -->
+        <section id="founder" class="section section-alt">
+            <div class="container founder">
+                <div class="founder-photo">
+                    <img src="images/tanguyfalconnet.jpeg" alt="Tanguy Falconnet" width="512" height="512" loading="lazy">
+                    <p class="founder-cert"><svg class="icon"><use href="#i-award"/></svg><span data-i18n="founder.cert">AWS Certified Solutions Architect – Associate</span></p>
                 </div>
 
-                <div class="md:w-1/2">
-                    <form class="bg-white p-8 rounded-xl shadow-md">
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2 i18n-form-name">Nom complet</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent">
+                <div class="founder-body">
+                    <p class="eyebrow" data-i18n="founder.eyebrow">Fondateur</p>
+                    <h2>Tanguy Falconnet</h2>
+                    <p class="founder-role" data-i18n="founder.role">Fondateur &amp; consultant technique</p>
+                    <p data-i18n="founder.p1">Passionné par les technologies cloud depuis plus de 10 ans, j'accompagne les entreprises dans leur transformation numérique avec une approche pragmatique et orientée résultats.</p>
+                    <p data-i18n="founder.p2">Mon expertise couvre la plateforme cloud AWS, avec une prédilection pour les solutions open source.</p>
+
+                    <dl class="stack-table">
+                        <div><dt>Cloud</dt><dd>AWS · Scaleway</dd></div>
+                        <div><dt>Kubernetes</dt><dd>EKS · Kops · k3s · Helm · FluxCD · Docker · containerd</dd></div>
+                        <div><dt>CI/CD</dt><dd>GitHub Actions · GitLab CI · Jenkins</dd></div>
+                        <div><dt data-i18n="founder.monitoring">Observabilité</dt><dd>Prometheus · Grafana · Loki · VictoriaMetrics · Alertmanager</dd></div>
+                        <div><dt>IaC</dt><dd>Terraform · Ansible · CloudFormation</dd></div>
+                    </dl>
+
+                    <div class="founder-links">
+                        <a class="btn btn-dark" href="https://www.linkedin.com/in/tanguy-falconnet"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a>
+                        <a class="btn btn-outline" href="https://github.com/tanguyfalconnet"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <p class="eyebrow" data-i18n="testimonials.eyebrow">Témoignages</p>
+                    <h2 data-i18n="testimonials.title">Ils nous ont fait confiance</h2>
+                    <p class="lead" data-i18n="testimonials.lead">Ce que disent nos clients de notre collaboration.</p>
+                </header>
+
+                <div class="grid grid-2">
+                    <figure class="card quote">
+                        <blockquote data-i18n="testimonials.t1.text">
+                            <p>Je tiens à remercier l'équipe de Pewty pour la qualité de notre collaboration. Leur expertise sur Kubernetes, notamment dans le déploiement de runners GitHub Actions, combinée à leur capacité à proposer des solutions innovantes, a été un réel moteur dans l'avancement de notre projet.</p>
+                            <p>Leur accompagnement est à la fois rigoureux, réactif et toujours orienté valeur. On sent une vraie implication et un engagement sincère dans la mission. Une collaboration fluide, constructive et très professionnelle.</p>
+                        </blockquote>
+                        <figcaption class="quote-author">
+                            <img src="images/jeremyplanckeel.jpg" alt="" width="48" height="48" loading="lazy">
+                            <div>
+                                <strong>Jérémy Planckeel</strong>
+                                <span>Lead DevOps, Energy Pool</span>
+                            </div>
+                            <a class="quote-social" href="https://www.linkedin.com/in/jeremy-planckeel-%F0%9F%94%86%F0%9F%8C%A9%EF%B8%8F-44426112b/" aria-label="LinkedIn — Jérémy Planckeel"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="card quote">
+                        <blockquote data-i18n="testimonials.t2.text">
+                            <p>Le travail avec Tanguy et Pewty a été un véritable accélérateur. Grâce à nos échanges réguliers, nous avons pu confronter nos approches et approfondir des sujets pointus liés aux infrastructures Kubernetes. Leur expertise technique s'est révélée précieuse, tant sur le design d'architecture que sur l'optimisation opérationnelle.</p>
+                            <p>Leur outil de visualisation des objets Kubernetes est particulièrement efficace : il offre une représentation claire et intuitive de l'état de l'infrastructure, ce qui facilite la compréhension, le diagnostic et la prise de décision.</p>
+                        </blockquote>
+                        <figcaption class="quote-author">
+                            <img src="images/tanguycharon.jpg" alt="" width="48" height="48" loading="lazy">
+                            <div>
+                                <strong>Tanguy Charon</strong>
+                                <span>CEO DoNow &amp; DevOps</span>
+                            </div>
+                            <a class="quote-social" href="https://www.linkedin.com/in/tanguy-charon-devops/" aria-label="LinkedIn — Tanguy Charon"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact sky-section">
+            <div class="sky" data-band="35,90" aria-hidden="true"></div>
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <p class="eyebrow">Contact</p>
+                        <h2 data-i18n="contact.title">Prêt à passer au Cloud ?</h2>
+                        <p class="lead" data-i18n="contact.lead">Que vous ayez un projet précis ou simplement des questions sur les technologies cloud, nous sommes là pour vous aider.</p>
+
+                        <ul class="contact-list">
+                            <li>
+                                <span class="icon-tile"><svg class="icon"><use href="#i-mail"/></svg></span>
+                                <div><span class="contact-label">Email</span><a href="mailto:contact@pewty.fr">contact@pewty.fr</a></div>
+                            </li>
+                            <li>
+                                <span class="icon-tile"><svg class="icon"><use href="#i-phone"/></svg></span>
+                                <div><span class="contact-label" data-i18n="contact.phone">Téléphone</span><a href="tel:+33749831837">+33 7 49 83 18 37</a></div>
+                            </li>
+                        </ul>
+
+                        <div class="social-row">
+                            <a href="https://www.linkedin.com/company/pewty" aria-label="LinkedIn — Pewty"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+                            <a href="https://github.com/pewty-fr/" aria-label="GitHub — Pewty"><svg class="icon"><use href="#i-github"/></svg></a>
                         </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent">
+                    </div>
+
+                    <form class="contact-form" id="contact-form">
+                        <div class="field-row">
+                            <label class="field">
+                                <span data-i18n="contact.form.name">Nom complet</span>
+                                <input type="text" name="name" autocomplete="name" required>
+                            </label>
+                            <label class="field">
+                                <span data-i18n="contact.form.company">Entreprise</span>
+                                <input type="text" name="company" autocomplete="organization">
+                            </label>
                         </div>
-                        <div class="mb-6">
-                            <label for="company" class="block text-gray-700 font-medium mb-2 i18n-form-company">Entreprise</label>
-                            <input type="text" id="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-orange-400 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 i18n-form-send-message">
-                            Envoyer le message
-                        </button>
+                        <label class="field">
+                            <span>Email</span>
+                            <input type="email" name="email" autocomplete="email" required>
+                        </label>
+                        <label class="field">
+                            <span>Message</span>
+                            <textarea name="message" rows="5" required></textarea>
+                        </label>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit"><span data-i18n="contact.form.submit">Envoyer le message</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+                        <p class="form-note" data-i18n="contact.form.note">L'envoi ouvre votre messagerie avec le message pré-rempli.</p>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <img src="images/favicon.png" alt="Pewty Logo" class="h-10">
-                    <span class="text-white font-bold text-2xl mb-6 block">PEWTY</span>
-                    <p class="text-gray-400 i18n-description">Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et migration cloud.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 i18n-legal">Mentions Légales</h3>
-                    <ul class="space-y-2">
-                        <p class="text-gray-400">Pewty</p>
-                        <p class="text-gray-400">SAS au capital de 1000€</p>
-                        <p class="text-gray-400">630 chemin de Graboz 01140 Saint Etienne Sur Chalaronne</p>
-                        <p class="text-gray-400">922 431 358</p>
-                        <p class="text-gray-400">R.C.S. Bourg-en-Bresse</p>
-                    </ul>
-                </div>
-                
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0 i18n-copyright">© 2022-2025 Pewty. Tous droits réservés.</p>
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/company/pewty" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/pewty-fr/" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-github"></i>
-                    </a>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a class="brand" href="#home" aria-label="Pewty">
+                    <img src="images/favicon.png" alt="" width="34" height="34">
+                    <span>PEWTY</span>
+                </a>
+                <p data-i18n="footer.tagline">Expertise technique et accompagnement personnalisé pour vos projets d'infrastructure et de migration cloud.</p>
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/company/pewty" aria-label="LinkedIn — Pewty"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+                    <a href="https://github.com/pewty-fr/" aria-label="GitHub — Pewty"><svg class="icon"><use href="#i-github"/></svg></a>
                 </div>
             </div>
+
+            <div>
+                <h3 data-i18n="footer.nav">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#services" data-i18n="nav.services">Expertise</a></li>
+                    <li><a href="#products" data-i18n="nav.products">Produits</a></li>
+                    <li><a href="#about" data-i18n="nav.approach">Approche</a></li>
+                    <li><a href="#founder" data-i18n="nav.founder">Fondateur</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div id="legal">
+                <h3 data-i18n="footer.legal">Mentions légales</h3>
+                <ul class="legal">
+                    <li data-i18n="footer.legal.company">Pewty SAS au capital de 1 000 €</li>
+                    <li data-i18n="footer.legal.address">Siège : 630 chemin de Graboz, 01140 Saint-Étienne-sur-Chalaronne</li>
+                    <li>SIRET 922 431 358 00014 · RCS Bourg-en-Bresse 922 431 358</li>
+                    <li data-i18n="footer.legal.publisher">Directeur de la publication : Tanguy Falconnet</li>
+                    <li data-i18n="footer.legal.host">Hébergement : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>© 2022–<span id="year">2026</span> Pewty. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
         </div>
     </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-orange-400 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Form submission (example)
-        const contactForm = document.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                window.open("mailto:contact@pewty.fr?subject=Contact%20Form&body=Nom:%20" + document.getElementById('name').value + "%0AEmail:%20" + document.getElementById('email').value + "%0AEntreprise:%20" + document.getElementById('company').value + "%0AMessage:%20" + document.getElementById('message').value, '_blank');
-                this.reset();
-            });
-        }
-
-        // Floating clouds animation
-        function createClouds() {
-            const cloudsContainer = document.querySelector('.floating-clouds');
-            if (!cloudsContainer) return;
-
-            for (let i = 0; i < 10; i++) {
-                const cloud = document.createElement('div');
-                cloud.className = 'cloud';
-                
-                // Random size
-                const size = Math.random() * 100 + 50;
-                cloud.style.width = `${size}px`;
-                cloud.style.height = `${size}px`;
-                
-                // Random position
-                cloud.style.left = `${Math.random() * 100}%`;
-                cloud.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation
-                const duration = Math.random() * 120 + 30;
-                cloud.style.animation = `moveClouds ${duration}s linear infinite`;
-                
-                cloudsContainer.appendChild(cloud);
-            }
-        }
-
-        // Initialize clouds
-        window.addEventListener('load', createClouds);
-
-        function i18n(lang) {
-            fetch(`/lang/${lang}.json`)
-            .then(response => response.json())
-            .then(data => {
-                for (const [key, value] of Object.entries(data)) {
-                    elements = document.getElementsByClassName(`i18n-${key}`);
-                    for (let i = 0; i < elements.length; i++) {
-                        elements[i].innerHTML = value;
-                    }
-                }
-            })
-            .catch(error => console.error('Error loading JSON:', error));
-        }
-        window.addEventListener('load', i18n);
-
-        const menuButtons = document.getElementsByName("menu-button");
-
-        menuButtons[0].addEventListener('click', () => menuLangClick(0));
-        menuButtons[1].addEventListener('click', () => menuLangClick(1));
-
-        function menuLangClick(id){
-            const menuLang = document.getElementsByName("menu-language")[id];
-            if (menuLang.classList.contains('hidden')) {
-                menuLang.classList.remove('hidden');
-                menuLang.style.transform = 'scale(0.95)';
-                // menuLang.style.opacity = '0';
-                menuLang.style.transition = 'transform 100ms ease-out, opacity 100ms ease-out';
-                // Trigger the transition
-                setTimeout(() => {
-                    menuLang.style.transform = 'scale(1)';
-                    // menuLang.style.opacity = '1';
-                }, 0);
-            }else{
-                menuLang.classList.add('hidden');
-                menuLang.style.transform = 'scale(1)';
-                // menuLang.style.opacity = '1';
-                menuLang.style.transition = 'transform 75ms ease-in, opacity 75ms ease-in';
-                // Trigger the transition
-                setTimeout(() => {
-                    menuLang.style.transform = 'scale(0.95)';
-                    // menuLang.style.opacity = '0';
-                }, 0);
-            }
-        }
-    </script>
 </body>
 </html>
