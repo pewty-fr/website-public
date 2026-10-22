@@ -188,6 +188,26 @@
         window.location.href = `mailto:contact@pewty.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 
+    /* Copy buttons next to the demo credentials
+       ---------------------------------------------------------------------- */
+    document.querySelectorAll('.copy-btn').forEach((button) => {
+        button.addEventListener('click', async () => {
+            const value = button.previousElementSibling;
+            try {
+                await navigator.clipboard.writeText(value.textContent);
+            } catch {
+                // Clipboard API unavailable: select the text so it can be copied by hand.
+                const range = document.createRange();
+                range.selectNodeContents(value);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                return;
+            }
+            button.classList.add('is-copied');
+            setTimeout(() => button.classList.remove('is-copied'), 1500);
+        });
+    });
+
     /* Footer year
        ---------------------------------------------------------------------- */
     document.getElementById('year').textContent = new Date().getFullYear();

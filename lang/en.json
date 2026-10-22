@@ -55,6 +55,12 @@
     "products.wirety.f1": "Automatic, real-time peer configuration",
     "products.wirety.f2": "Zero-trust ACLs and automated incident response",
     "products.wirety.f3": "OIDC authentication (Keycloak, Dex…)",
+    "products.wirety.access": "Demo access",
+    "products.wirety.user": "Username",
+    "products.wirety.password": "Password",
+    "products.wirety.copyUser": "Copy username",
+    "products.wirety.copyPassword": "Copy password",
+    "products.wirety.demo": "See the demo",
 
     "approach.eyebrow": "Method",
     "approach.title": "Our approach",
